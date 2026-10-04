@@ -8,7 +8,11 @@ import { emptyAllowed, harvestFromToolResult } from "../../src/lib/citations/har
 
 const here = dirname(fileURLToPath(import.meta.url));
 const TEXT = readFileSync(join(here, "../fixtures/research-result.txt"), "utf8");
-const { allowed } = harvestFromToolResult("mcp__fuentes__research", [{ type: "text", text: TEXT }], undefined);
+const { allowed } = harvestFromToolResult(
+  "mcp__fuentes__research",
+  [{ type: "text", text: TEXT }],
+  undefined,
+);
 const NO_WEB = new Set<string>();
 
 describe("applyGuard", () => {

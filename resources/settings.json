@@ -4,5 +4,8 @@
   "defaultTools": ["read", "bash", "edit", "write", "grep", "find", "ls"],
   "defaultThinkingLevel": "medium",
   "enableInstallTelemetry": false,
-  "enableAnalytics": false
+  "enableAnalytics": false,
+  "tuiMode": "fullscreen",
+  "fullscreenScrollbar": "auto",
+  "editorPaddingX": 1
 }

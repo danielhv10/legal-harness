@@ -71,6 +71,8 @@ letrado
 
 Comandos útiles: `/login` (suscripción), `/model` (modelo), `/expediente`, `/citas`, `/dictamen <cuestión>`, `/resumen-expediente`, `/comparar-versiones a.docx b.docx`, `/letrado` (estado), `! <comando>` (shell).
 
+Pantalla completa: letrado arranca por defecto en modo pantalla completa (`tuiMode: "fullscreen"`, con barra de desplazamiento automática). Para volver al modo clásico de terminal (la conversación se imprime en el scroll normal), cambia `tuiMode` a `regular` desde `/settings` o editando `~/.letrado/agent/settings.json` (`"tuiMode": "regular"`); el cambio se aplica al reiniciar. Con `/ayuda` se listan los comandos.
+
 Modo no interactivo:
 
 ```bash
