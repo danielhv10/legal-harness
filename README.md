@@ -1,57 +1,63 @@
 # letrado
 
-Agente de terminal para abogados: legislación, jurisprudencia y resoluciones españolas con herramientas para trabajar sobre los documentos del expediente. Construido como envoltorio de [Pi](https://pi.dev) (`@earendil-works/pi-coding-agent`).
+Terminal agent for Spanish lawyers: legislation, case law and administrative resolutions, plus tools to work on the documents of a case file. Built as a wrapper around [Pi](https://pi.dev) (`@earendil-works/pi-coding-agent`).
 
-## Qué hace
+The user interface, prompts, skills and templates are in Spanish because the product is aimed at Spanish legal professionals. This documentation and the commit history are in English.
 
-- Conversación con un modelo de IA usando **tu suscripción** de Claude (Pro/Max), ChatGPT (Plus/Pro) o GitHub Copilot, sin API keys propias (`/login`).
-- Consulta de fuentes jurídicas a través de un servidor MCP (`research`, `search_legal`, `get_document`, `list_sources`): BOE consolidado con vigencia por artículo, CENDOJ, jurisprudencia, resoluciones TEAC/DGT/AEPD/CNMC/Fiscalía y doctrina.
-- Lectura de PDF y Word del expediente (`read_pdf`, `read_docx`), creación de documentos Word (`write_docx`), búsqueda y lectura web (`web_search`, `web_fetch`) y las herramientas de ficheros de Pi (`read`, `edit`, `write`, `grep`, `find`, `ls`, `bash`).
-- Guardarraíl de citas: elimina de las respuestas enlaces, Roj y ECLI que no provengan de las fuentes servidas en la sesión (`/citas` muestra lo servido y lo eliminado).
-- Expedientes: `cd` a la carpeta del asunto (lee `AGENTS.md`) o `/expediente <dir>`; `/expediente init` crea `EXPEDIENTE.md` y `AGENTS.md` de plantilla.
-- Skills (`redaccion-demanda`, `informe-juridico`, `plazos-procesales`) y plantillas (`/dictamen`, `/resumen-expediente`, `/comparar-versiones`).
+## What it does
 
-## Requisitos
+- Conversation with an AI model using **your own subscription** to Claude (Pro/Max), ChatGPT (Plus/Pro) or GitHub Copilot, with no API keys (`/login`).
+- Legal sources through an MCP server (`research`, `search_legal`, `get_document`, `list_sources`): consolidated BOE with per-article validity status, CENDOJ, case law, TEAC/DGT/AEPD/CNMC/Fiscalía resolutions and legal doctrine.
+- Reading PDF and Word files from the case folder (`read_pdf`, `read_docx`), creating Word documents (`write_docx`), web search and reading (`web_search`, `web_fetch`) and Pi's file tools (`read`, `edit`, `write`, `grep`, `find`, `ls`, `bash`).
+- Citation guardrail: links, Roj and ECLI identifiers that were not served by the sources in the current session are removed from the answers (`/citas` lists what was served and what was stripped).
+- Case files ("expedientes"): `cd` into the matter's folder (its `AGENTS.md` is picked up) or run `/expediente <dir>`; `/expediente init` creates `EXPEDIENTE.md` and `AGENTS.md` from templates. A widget above the editor shows the case name, the next deadline and the documents read so far.
+- Task list maintained by the model (`tareas` tool, `/tareas`), shown as a widget like Claude Code's todo list.
+- Skills (`redaccion-demanda`, `informe-juridico`, `plazos-procesales`) and prompt templates (`/dictamen`, `/resumen-expediente`, `/comparar-versiones`).
+- A dedicated look: block-letter wordmark, welcome panel, context-aware footer, Spanish tool cards, bordered status editor, overlay permission dialogs and the "verde letrado" theme (light and dark).
 
-- Node.js 22.19 o superior.
-- Un servidor MCP de fuentes jurídicas en ejecución local (ver más abajo). Sin él, letrado funciona como asistente con documentos locales y web.
+## Requirements
 
-## Instalación
+- Node.js 22.19 or newer.
+- A legal-sources MCP server running locally (see below). Without it, letrado still works as an assistant over local documents and the web.
+
+## Installation
 
 ```bash
 pnpm install
 pnpm build
-pnpm add -g .          # o: npm link
+pnpm add -g .          # or: npm link
 letrado --help
 ```
 
-Primer arranque: letrado crea `~/.letrado/agent/` con `settings.json`, `SYSTEM.md`, temas, skills, plantillas y `mcp.json`, y ofrece elegir la suscripción con la que trabajar. Variables opcionales:
+First run: letrado creates `~/.letrado/agent/` with `settings.json`, `SYSTEM.md`, themes, skills, prompt templates and `mcp.json`, and offers to pick the subscription to work with. Optional variables:
 
-| Variable | Uso |
+| Variable | Purpose |
 |---|---|
-| `LETRADO_HOME` | Directorio base alternativo (por defecto `~/.letrado`). |
-| `LETRADO_MCP_COMMAND`, `LETRADO_MCP_ARGS` | Comando del servidor MCP para el primer `mcp.json` (p. ej. `node` y `/ruta/al/servidor-mcp/dist/index.js`). |
-| `LETRADO_MCP_ENV_FILE` | Fichero `.env` que debe cargar el servidor MCP. |
-| `LETRADO_WEB_SEARCH` | `duckduckgo` (por defecto, sin clave), `tavily`, `brave` o `exa` (requieren `TAVILY_API_KEY`, `BRAVE_API_KEY`, `EXA_API_KEY`). |
+| `LETRADO_HOME` | Alternative base directory (default `~/.letrado`). |
+| `LETRADO_MCP_COMMAND`, `LETRADO_MCP_ARGS` | MCP server command written into the first `mcp.json` (e.g. `node` and `/path/to/mcp-server/dist/index.js`). |
+| `LETRADO_MCP_ENV_FILE` | `.env` file the MCP server should load. |
+| `LETRADO_WEB_SEARCH` | `duckduckgo` (default, no key), `tavily`, `brave` or `exa` (require `TAVILY_API_KEY`, `BRAVE_API_KEY`, `EXA_API_KEY`). |
 
-## Conectar el servidor de fuentes
+Managed resources (`SYSTEM.md`, themes, skills, prompt templates) are synchronised by content hash on every start: when a new letrado version changes them they are updated, and if you had edited one yourself a `.bak-<version>` copy is kept next to it. `settings.json` and `APPEND_SYSTEM.md` belong to you and are never overwritten.
 
-Edita `~/.letrado/agent/mcp.json` o ejecuta:
+## Connecting the sources server
+
+Edit `~/.letrado/agent/mcp.json` or run:
 
 ```bash
-letrado mcp add fuentes -- node /ruta/al/servidor-mcp/dist/index.js
+letrado mcp add fuentes -- node /path/to/mcp-server/dist/index.js
 letrado mcp list
 ```
 
-Formato recomendado (`timeout` alto porque `research` tarda entre 20 y 90 s; `exposure: direct` para que el modelo vea las herramientas sin pasos intermedios):
+Recommended entry (`timeout` is high because `research` takes 20 to 90 seconds; `exposure: direct` lets the model see the tools without intermediate steps):
 
 ```json
 {
   "mcpServers": {
     "fuentes": {
       "command": "node",
-      "args": ["/ruta/al/servidor-mcp/dist/index.js"],
-      "env": { "MAITE_MCP_ENV_FILE": "/ruta/al/servidor-mcp/.env" },
+      "args": ["/path/to/mcp-server/dist/index.js"],
+      "env": { "MAITE_MCP_ENV_FILE": "/path/to/mcp-server/.env" },
       "timeout": 300,
       "exposure": "direct",
       "description": "Corpus jurídico español: BOE, CENDOJ, resoluciones y doctrina"
@@ -60,47 +66,47 @@ Formato recomendado (`timeout` alto porque `research` tarda entre 20 y 90 s; `ex
 }
 ```
 
-Dentro de una sesión, `/mcp` muestra el estado de la conexión.
+Inside a session, `/mcp` shows the connection status.
 
-## Uso
+## Usage
 
 ```bash
 cd ~/expedientes/garcia-vs-constructora
 letrado
 ```
 
-Comandos útiles: `/login` (suscripción), `/model` (modelo), `/expediente`, `/citas`, `/dictamen <cuestión>`, `/resumen-expediente`, `/comparar-versiones a.docx b.docx`, `/letrado` (estado), `! <comando>` (shell).
+Useful commands: `/login` (subscription), `/model` (model), `/expediente`, `/tareas`, `/citas`, `/dictamen <question>`, `/resumen-expediente`, `/comparar-versiones a.docx b.docx`, `/letrado` (status), `/ayuda` (command list), `/editor clasico|letrado` (editor style), `! <command>` (shell).
 
-Pantalla completa: letrado arranca por defecto en modo pantalla completa (`tuiMode: "fullscreen"`, con barra de desplazamiento automática). Para volver al modo clásico de terminal (la conversación se imprime en el scroll normal), cambia `tuiMode` a `regular` desde `/settings` o editando `~/.letrado/agent/settings.json` (`"tuiMode": "regular"`); el cambio se aplica al reiniciar. Con `/ayuda` se listan los comandos.
+Full screen: letrado starts in full-screen mode by default (`tuiMode: "fullscreen"`, with an automatic scrollbar). To go back to the classic terminal mode (the conversation is printed into the normal scrollback) set `tuiMode` to `regular` from `/settings` or by editing `~/.letrado/agent/settings.json` (`"tuiMode": "regular"`); the change applies on restart.
 
-Modo no interactivo:
+Non-interactive mode:
 
 ```bash
 letrado -p "¿Qué plazo tengo para contestar a la demanda en juicio ordinario? Cita la norma."
 ```
 
-## Suscripciones y coste
+## Subscriptions and cost
 
-letrado no necesita API keys: Pi incluye el inicio de sesión OAuth de Claude (Pro/Max), ChatGPT (Plus/Pro) y GitHub Copilot, entre otros. Las credenciales se guardan en `~/.letrado/agent/auth.json`.
+letrado needs no API keys: Pi ships OAuth sign-in for Claude (Pro/Max), ChatGPT (Plus/Pro) and GitHub Copilot, among others. Credentials are stored in `~/.letrado/agent/auth.json`.
 
-Aviso: según la documentación de Pi, Anthropic factura el uso desde aplicaciones de terceros con suscripción Pro/Max como *uso extra* por token, no contra los límites del plan. ChatGPT sí consume la suscripción.
+Note: according to Pi's documentation, Anthropic bills usage from third-party applications on Pro/Max subscriptions as *extra usage* per token rather than against the plan limits. ChatGPT does consume the subscription.
 
-Las claves del servidor MCP (embeddings y motor de investigación) son infraestructura del servidor, no del usuario; viven en su `.env`.
+The MCP server keys (embeddings and research engine) belong to the server's infrastructure, not to the user; they live in its `.env`.
 
-## Desarrollo
+## Development
 
 ```bash
 pnpm install
-pnpm dev              # TUI con PI_CODING_AGENT_DIR=./.dev-agent
+pnpm dev              # TUI with PI_CODING_AGENT_DIR=./.dev-agent
 pnpm typecheck
 pnpm test
 pnpm build
 ```
 
-Estructura: `src/cli.ts` (arranque), `src/bootstrap.ts` (preparación de `~/.letrado/agent`), `src/extensions/*` (branding, onboarding, seguridad, herramientas, citas, expediente), `src/lib/*` (código puro testeado), `resources/*` (SYSTEM.md, temas, skills, plantillas).
+Layout: `src/cli.ts` (startup), `src/bootstrap.ts` (preparation of `~/.letrado/agent`), `src/extensions/*` (branding, onboarding, safety, tools, tool renderers, citations, case files, widgets, tasks, editor), `src/lib/*` (pure, tested code), `resources/*` (SYSTEM.md, themes, skills, templates).
 
-## Limitaciones conocidas (hito 1)
+## Known limitations (milestone 1)
 
-- Edición de `.docx` existentes con control de cambios: pendiente (fase 2). `write_docx` crea documentos nuevos.
-- OCR de PDF escaneados: pendiente.
-- Algunos textos internos de Pi (ajustes, actualizaciones) siguen mostrando "pi".
+- Editing existing `.docx` files with tracked changes: pending (phase 2). `write_docx` creates new documents.
+- OCR for scanned PDFs: pending.
+- Some of Pi's internal strings (settings, updates) still read "pi".
