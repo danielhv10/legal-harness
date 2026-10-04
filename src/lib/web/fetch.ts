@@ -123,7 +123,7 @@ export async function assertPublicUrlResolved(input: string): Promise<URL> {
 // ---------------------------------------------------------------------------
 
 function userAgent(): string {
-  return `letrado/${letradoVersion()} (+agente jurídico de terminal)`;
+  return `letrado/${letradoVersion()} (+agente jurídico)`;
 }
 
 async function readBody(res: Response, signal: AbortSignal): Promise<Uint8Array> {

@@ -116,7 +116,7 @@ function headerLines(
   // Logotipo en letras de bloque cuando cabe; si no, el nombre en texto.
   const innerForLogo = Math.min(width, HEADER_MAX_WIDTH) - 4;
   const scale = narrow ? null : pickWordmarkScale(innerForLogo);
-  const tagline = `${theme.fg("dim", `v${version}`)}  ${theme.fg("muted", "agente jurídico de terminal")}`;
+  const tagline = `${theme.fg("dim", `v${version}`)}  ${theme.fg("muted", "agente jurídico")}`;
   const wordmarkRows = scale
     ? [...wordmarkLines("LETRADO", scale).map((row) => theme.fg("accent", row)), tagline, ""]
     : [`${theme.fg("accent", theme.bold("letrado"))} ${tagline}`];
