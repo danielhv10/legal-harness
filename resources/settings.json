@@ -1,0 +1,8 @@
+{
+  "theme": "letrado-light/letrado-dark",
+  "quietStartup": true,
+  "defaultTools": ["read", "bash", "edit", "write", "grep", "find", "ls"],
+  "defaultThinkingLevel": "medium",
+  "enableInstallTelemetry": false,
+  "enableAnalytics": false
+}

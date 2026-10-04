@@ -1,0 +1,13 @@
+{
+  "mcpServers": {
+    "fuentes": {
+      "command": "__MCP_COMMAND__",
+      "args": __MCP_ARGS__,
+      "env": __MCP_ENV__,
+      "enabled": __MCP_ENABLED__,
+      "timeout": 300,
+      "exposure": "direct",
+      "description": "Corpus jurídico español: BOE consolidado, jurisprudencia CENDOJ, resoluciones (TEAC, DGT, AEPD, CNMC, Fiscalía) y doctrina (búsqueda, texto completo e investigación)"
+    }
+  }
+}
