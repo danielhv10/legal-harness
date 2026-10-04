@@ -1,0 +1,54 @@
+{
+  "ok": true,
+  "selected_keys": ["boe:BOE-A-2000-323:a404", "cendoj:ES:TS:2024:1234"],
+  "citations": [
+    {
+      "doc_key": "boe:BOE-A-2000-323:a404",
+      "collection": "boe",
+      "label": "Artículo 404 de la Ley 1/2000, de Enjuiciamiento Civil",
+      "title": "Ley 1/2000, de 7 de enero, de Enjuiciamiento Civil",
+      "date": "2000-01-08",
+      "url": "https://www.boe.es/buscar/act.php?id=BOE-A-2000-323#a404",
+      "boe_id": "BOE-A-2000-323",
+      "articulo": "404",
+      "vigencia": "Documento: vigente · Artículo: modificado el 2015-10-06 por BOE-A-2015-10727",
+      "score": 0.91,
+      "node_keys": ["n1"],
+      "injected_by_backstop": false
+    },
+    {
+      "doc_key": "cendoj:ES:TS:2024:1234",
+      "collection": "cendoj",
+      "label": "Sentencia del Tribunal Supremo, Sala Primera, de 12 de marzo de 2024 (Roj: STS 1234:2024 · ECLI: ES:TS:2024:1234)",
+      "title": "STS 1234/2024",
+      "date": "2024-03-12",
+      "url": null,
+      "roj": "STS 1234:2024",
+      "ecli": "ES:TS:2024:1234",
+      "score": 0.84,
+      "node_keys": ["n2"],
+      "injected_by_backstop": false
+    },
+    {
+      "doc_key": "jurisprudencias:2528980",
+      "collection": "jurisprudencias",
+      "label": "Audiencia Provincial de Madrid, Sección 14, sentencia de 2023-05-20 (Roj: SAP M 5887:2023)",
+      "date": "2023-05-20",
+      "url": "https://visor.example.org/search?id=2528980&type=jurisprudencias",
+      "roj": "SAP M 5887:2023",
+      "score": 0.7,
+      "node_keys": ["n3"],
+      "injected_by_backstop": true
+    }
+  ],
+  "allowed_citations": {
+    "urls": [
+      "https://www.boe.es/buscar/act.php?id=BOE-A-2000-323#a404",
+      "https://www.boe.es/buscar/act.php?id=BOE-A-2015-10727",
+      "https://visor.example.org/search?id=2528980&type=jurisprudencias"
+    ],
+    "rojs": ["STS 1234:2024", "SAP M 5887:2023"],
+    "eclis": ["ES:TS:2024:1234"]
+  },
+  "session_state": { "framework_version": 3, "turn": 1, "selected_keys": ["boe:BOE-A-2000-323:a404"] }
+}

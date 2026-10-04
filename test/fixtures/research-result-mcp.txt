@@ -1,0 +1,54 @@
+# Investigación jurídica: ¿Qué plazo tengo para contestar a la demanda en juicio ordinario?
+
+## Encuadre jurídico (versión 1)
+Instituciones núcleo: contestación a la demanda; juicio ordinario
+Hechos afirmados: el usuario ha sido emplazado como demandado
+Nodos:
+- n1: plazo para contestar la demanda en juicio ordinario (afirmado)
+- n2: cómputo de plazos procesales (días hábiles) (afirmado)
+- n3: efectos de la falta de contestación: rebeldía (condicional · condición: si el demandado no contesta en plazo)
+Preguntas abiertas: ¿fecha exacta del emplazamiento?
+
+## Fuentes seleccionadas: 6 documentos (≈ 0.0060 USD, 6 s)
+Cita únicamente los enlaces, Roj y ECLI que aparecen a continuación (ver también `citations` y `allowed_citations`). Respeta la línea Vigencia.
+
+## Leyes aplicables (BOE)
+Leyes Aplicables:
+- Enlace: [Ley 1/2000, de 7 de enero, de Enjuiciamiento Civil — Art. 404](https://www.boe.es/buscar/act.php?id=BOE-A-2000-323#a404) (fecha: 2000-01-08)
+  Ubicacion: LIBRO II · TÍTULO II · CAPÍTULO I
+  Metadatos: Art. 404 — Admisión de la demanda, emplazamiento al demandado y plazo para la contestación · Ley
+  Vigencia: Documento: vigente · Artículo: modificado — modificado el 2015-10-06 por [BOE-A-2015-10727](https://www.boe.es/buscar/act.php?id=BOE-A-2015-10727)
+  Contenido: 1. El Letrado de la Administración de Justicia, examinada la demanda, dictará decreto admitiendo la misma y dará traslado de ella al demandado para que la conteste en el plazo de veinte días.
+
+- Enlace: [Real Decreto de 3 de febrero de 1881, Ley de Enjuiciamiento Civil (1881) — Art. 1](https://www.boe.es/buscar/act.php?id=BOE-A-1881-813) (fecha: 1881-02-05)
+  Ubicacion: 
+  Vigencia: DOCUMENTO DEROGADO — norma no vigente; sus artículos no son aplicables — derogado por [BOE-A-2000-323](https://www.boe.es/buscar/act.php?id=BOE-A-2000-323)
+  Contenido: La justicia civil ordinaria se administrará por los jueces y tribunales.
+
+## Jurisprudencia CENDOJ
+Jurisprudencia CENDOJ:
+- Tribunal Supremo. Sala de lo Civil (Roj: STS 1234:2025 · ECLI: ES:TS:2025:1234) (fecha: 2025-03-12)
+  Ubicacion: Recurso de casación
+  Metadatos: STS 1234:2025 · Civil · Recurso de casación · 2025-03-12 · Síntesis: cómputo del plazo de contestación · Artículos citados: art. 404 Ley 1/2000, art. 133 Ley 1/2000
+  Contenido: El plazo de veinte días para contestar a la demanda se computa por días hábiles, excluyendo sábados, domingos y festivos, conforme al artículo 133 de la Ley de Enjuiciamiento Civil.
+
+## Resoluciones, jurisprudencia histórica y consultas
+Resoluciones y Consultas Vinculantes:
+- Audiencia Provincial de Madrid (fecha: 2019-06-04)
+  Ubicacion: Recurso de apelación
+  Metadatos: Audiencia Provincial de Madrid · Civil · Recurso de apelación · 2019-06-04
+  Contenido: FUNDAMENTOS:
+La rebeldía del demandado no supone allanamiento ni admisión de los hechos, debiendo el actor probar los hechos constitutivos de su pretensión.
+
+Resoluciones TEAC:
+- Resolución TEAC 00/01201/2023 (fecha: 2024-02-20)
+  Ubicacion: Vocalía 12ª
+  Metadatos: Resolución TEAC 00/01201/2023 · Vocalía 12ª · 2024-02-20
+  Contenido: Cómputo de plazos administrativos: los sábados se consideran inhábiles.
+
+## Base de conocimiento jurídico
+Base de Conocimiento Juridico:
+- Guía práctica del juicio ordinario (fecha: 2023-11-01)
+  Ubicacion: Guía
+  Metadatos: Guía · CGPJ · Nacional · 2023-11-01
+  Contenido: El demandado dispone de veinte días hábiles para contestar; el plazo empieza el día siguiente al emplazamiento.

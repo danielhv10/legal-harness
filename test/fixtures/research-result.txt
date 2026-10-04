@@ -1,0 +1,25 @@
+Leyes Aplicables:
+- Enlace: [Artículo 404 de la Ley 1/2000, de Enjuiciamiento Civil](https://www.boe.es/buscar/act.php?id=BOE-A-2000-323#a404) (fecha: 2000-01-08)
+  Ubicacion: Libro II > Título II > Capítulo I
+  Metadatos: Ley 1/2000 · BOE-A-2000-323
+  Vigencia: Documento: vigente · Artículo: modificado el 2015-10-06 por [BOE-A-2015-10727](https://www.boe.es/buscar/act.php?id=BOE-A-2015-10727)
+  Contenido: Artículo 404. Admisión de la demanda, emplazamiento al demandado y plazo para la contestación. 1. El Letrado de la Administración de Justicia, examinada la demanda, dictará decreto admitiendo la misma y dará traslado de ella al demandado para que la conteste en el plazo de veinte días.
+- Enlace: [Artículo 405 de la Ley 1/2000, de Enjuiciamiento Civil](https://www.boe.es/buscar/act.php?id=BOE-A-2000-323#a405) (fecha: 2000-01-08)
+  Ubicacion: Libro II > Título II > Capítulo I
+  Metadatos: Ley 1/2000 · BOE-A-2000-323
+  Vigencia: Documento: vigente · Artículo: vigente
+  Contenido: Artículo 405. Contestación y forma de la contestación a la demanda. 1. En la contestación a la demanda, que se redactará en la forma prevenida para ésta en el artículo 399, el demandado expondrá los fundamentos de su oposición a las pretensiones del actor.
+
+Jurisprudencia CENDOJ:
+- Enlace: Sentencia del Tribunal Supremo, Sala Primera, de 12 de marzo de 2024 (Roj: STS 1234:2024 · ECLI: ES:TS:2024:1234) (fecha: 2024-03-12)
+  Ubicacion: Sala de lo Civil
+  Metadatos: Recurso de casación 2345/2021 · Ponente: Juan Pérez
+  Contenido: La preclusión de la contestación a la demanda no impide al demandado comparecer en la audiencia previa.
+- Enlace: [Audiencia Provincial de Madrid, Sección 14, sentencia de 2023-05-20 (Roj: SAP M 5887:2023)](https://visor.example.org/search?id=2528980&type=jurisprudencias) (fecha: 2023-05-20)
+  Ubicacion: Sección 14
+  Contenido: El plazo de veinte días del artículo 404 LEC se computa por días hábiles.
+
+Resoluciones administrativas:
+- Enlace: Resolución del Tribunal Económico-Administrativo Central de 15 de febrero de 2022 (RG 1234/2020) (fecha: 2022-02-15)
+  Ubicacion: Vocalía 2ª
+  Contenido: No procede la devolución de ingresos indebidos cuando ha prescrito el derecho.
