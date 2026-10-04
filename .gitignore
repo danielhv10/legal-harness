@@ -1,0 +1,12 @@
+node_modules/
+dist/
+.pnpm-store/
+.pnpm-cache/
+.dev-agent/*
+!.dev-agent/.gitkeep
+*.tgz
+.env
+.DS_Store
+coverage/
+/*.docx
+/*.pdf
