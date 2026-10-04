@@ -3,6 +3,7 @@ import type { ExtensionAPI, ExtensionContext, Theme } from "@earendil-works/pi-c
 import { visibleWidth } from "@earendil-works/pi-tui";
 import { highlightLegalMarkdown } from "../lib/markdown-legal.js";
 import { BRAILLE_FRAMES, DEFAULT_WORKING_MESSAGE, workingMessageFor } from "../lib/ui-format.js";
+import { pickWordmarkScale, wordmarkLines } from "../lib/wordmark.js";
 import { state } from "../state.js";
 import { letradoVersion } from "../version.js";
 import {
@@ -112,7 +113,13 @@ function headerLines(
   const sep = theme.fg("dim", " · ");
   const label = (s: string) => theme.fg("muted", s);
 
-  const wordmark = `${theme.fg("accent", theme.bold("letrado"))} ${theme.fg("dim", `v${version}`)}  ${theme.fg("muted", "agente jurídico de terminal")}`;
+  // Logotipo en letras de bloque cuando cabe; si no, el nombre en texto.
+  const innerForLogo = Math.min(width, HEADER_MAX_WIDTH) - 4;
+  const scale = narrow ? null : pickWordmarkScale(innerForLogo);
+  const tagline = `${theme.fg("dim", `v${version}`)}  ${theme.fg("muted", "agente jurídico de terminal")}`;
+  const wordmarkRows = scale
+    ? [...wordmarkLines("LETRADO", scale).map((row) => theme.fg("accent", row)), tagline, ""]
+    : [`${theme.fg("accent", theme.bold("letrado"))} ${tagline}`];
 
   const modelo = ctx.model ? theme.fg("text", ctx.model.id) : theme.fg("warning", "sin modelo · /login");
   const razonamiento = theme.fg("text", nivelRazonamiento(ctx));
@@ -135,8 +142,8 @@ function headerLines(
   const statusRow = `${statusA}${sep}${statusB}`;
   const statusRows = visibleWidth(statusRow) <= inner ? [statusRow] : [statusA, statusB];
   const body = narrow
-    ? [wordmark, ...statusRows, "", theme.fg("dim", TIPS[2] ?? "")]
-    : [wordmark, ...statusRows, "", ...TIPS.map((t) => theme.fg("dim", t))];
+    ? [...wordmarkRows, ...statusRows, "", theme.fg("dim", TIPS[2] ?? "")]
+    : [...wordmarkRows, ...statusRows, "", ...TIPS.map((t) => theme.fg("dim", t))];
 
   if (width < 40) return body;
   return boxed(width, body, theme, { maxWidth: HEADER_MAX_WIDTH, borderColor: "border" });
