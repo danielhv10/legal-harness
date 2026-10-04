@@ -1,6 +1,6 @@
 ---
 name: redaccion-demanda
-description: Redacta una demanda civil (o un escrito procesal análogo: contestación, reconvención) con la estructura de la LEC, verificando antes competencia, procedimiento y plazos con las fuentes y guardando el resultado en Word. Úsala cuando el usuario pida "redacta la demanda", "prepara un escrito de contestación", "borrador de recurso".
+description: "Redacta una demanda civil (o un escrito procesal análogo: contestación, reconvención) con la estructura de la LEC, verificando antes competencia, procedimiento y plazos con las fuentes y guardando el resultado en Word. Úsala cuando el usuario pida \"redacta la demanda\", \"prepara un escrito de contestación\", \"borrador de recurso\"."
 ---
 
 # Redacción de demanda

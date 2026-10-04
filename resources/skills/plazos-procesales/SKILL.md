@@ -1,6 +1,6 @@
 ---
 name: plazos-procesales
-description: Calcula plazos procesales y administrativos (días hábiles o naturales, meses, agosto, dies a quo, inhábiles) citando la norma de cómputo y usando `date` para no equivocarse con el calendario. Úsala cuando el usuario pregunte "qué plazo tengo", "hasta cuándo puedo", "cómputo del plazo", "vence el".
+description: "Calcula plazos procesales y administrativos (días hábiles o naturales, meses, agosto, dies a quo, inhábiles) citando la norma de cómputo y usando `date` para no equivocarse con el calendario. Úsala cuando el usuario pregunte \"qué plazo tengo\", \"hasta cuándo puedo\", \"cómputo del plazo\", \"vence el\"."
 ---
 
 # Plazos procesales

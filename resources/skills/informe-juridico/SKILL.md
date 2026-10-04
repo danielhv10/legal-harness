@@ -1,6 +1,6 @@
 ---
 name: informe-juridico
-description: Elabora un informe o dictamen jurídico estructurado (antecedentes, cuestiones, normativa aplicable y vigencia, análisis, conclusiones) sobre una cuestión del expediente, con citas verificadas. Úsala cuando el usuario pida "dictamen", "informe", "nota jurídica", "análisis de viabilidad" o "qué opciones tenemos".
+description: "Elabora un informe o dictamen jurídico estructurado (antecedentes, cuestiones, normativa aplicable y vigencia, análisis, conclusiones) sobre una cuestión del expediente, con citas verificadas. Úsala cuando el usuario pida \"dictamen\", \"informe\", \"nota jurídica\", \"análisis de viabilidad\" o \"qué opciones tenemos\"."
 ---
 
 # Informe jurídico
